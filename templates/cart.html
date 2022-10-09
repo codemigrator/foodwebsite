@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+  <style>
+.button {
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button1 {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Shopping Cart Checkout Widget</title>
+  <link rel="stylesheet" href="{% static 'cr/css/style.css' %}">
+  <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
+  <div class="cart">
+    <div class="cart-top">
+      <h2 class="cart-top-title">CART</h2>
+      <div class="cart-top-info">ITEMS</div>
+    </div>
+  <div class="cart">
+          {% for i in ci %}
+    <ul>
+      <li class="cart-item">
+        <span class="cart-item-pic">
+          <a href="{{ i.prod.get_url }}"> <img src="{{ i.prod.img.url }}" alt="{{i.prod.name}}" style="height:70px;width:70px" /></a>
+        </span>
+        <p><a href="{{ i.prod.get_url }}">{{i.prod.name}}</a></p>
+        <span class="cart-item-desc">Description</span><br>
+
+        <span>PRICE:{{i.prod.price}}</span>
+        <span>TOTALPRICE:{{i.total}}</span>
+
+        <p>Quantity{{i.quant}}</p>
+        <p><a href="{% url 'addcart' i.prod.id %}"><button class="button button1">+</button></a>{{i.quant}}<a href="{% url 'decrement' i.prod.id %}"><button class="button button1">-</button></a></p>
+
+      </li>
+    </ul>
+
+
+    <div class="cart-bottom">
+      <a href="{% url 'remove' i.prod.id %}" class="cart-button">Delete</a>
+
+      <a href="/" class="cart-button">Continue</a>
+
+    </div>
+      <br><br>
+      {% endfor %}
+    <br>
+  <div class="cart-top" style="padding-top:5px;">
+    <center>TOTAL: {{t}}</center>
+  </div>
+  </div>
+  </div>
+</div>
+
+      <!--  footer -->
+      <footer>
+         <div class="footer">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-3">
+                     <div class="inror_box">
+                        <h3>INFORMATION </h3>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="inror_box">
+                        <h3>MY ACCOUNT </h3>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="inror_box">
+                        <h3>ABOUT  </h3>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="inror_box">
+                        <h3>CONTACTS  </h3>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="copyright">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <p>© 2019 All Rights Reserved. Design by<a href="https://html.design/"> Free Html Templates</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+
+
+      <!-- Javascript files-->
+      <script src="{% static 'home/js/jquery.min.js' %}"></script>
+      <script src="{% static 'home/js/popper.min.js' %}"></script>
+      <script src="{% static 'home/js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'home/js/jquery-3.0.0.min.js' %}"></script>
+      <!-- sidebar -->
+      <script src="{% static 'home/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+      <script src="{% static 'home/js/custom.js' %}"></script>
+
+
+</body>
+</html>
+{% endblock %}

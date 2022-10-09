@@ -1,0 +1,80 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block content %}
+<div id="login-box" style="height:700px">
+  <div class="left">
+    <h1>Sign up</h1>
+      <form action="{% url 'register' %}" method="post">
+    {% csrf_token %}
+
+    <input type="text" name="username" size="15" placeholder="User name"/> <br>
+    <input type="text" name="firstname" size="15" placeholder="First name"/> <br>
+    <input type="text" name="lastname" size="15" placeholder="Last name"/> <br>
+    <input type="Password" id="pass" name="pass"placeholder="password"/> <br>
+    <input type="Password" id="repass" name="repass"placeholder="re-type"/> <br>
+    <input type="email" id="email" name="email"placeholder="Email"/> <br><br>
+
+    <button type="submit" >REGISTER</button>
+</form>
+
+</div>
+
+
+</div>
+      <!--  footer -->
+      <footer>
+         <div class="footer">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-3">
+                     <div class="inror_box">
+                        <h3>INFORMATION </h3>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="inror_box">
+                        <h3>MY ACCOUNT </h3>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="inror_box">
+                        <h3>ABOUT  </h3>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="inror_box">
+                        <h3>CONTACTS  </h3>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="copyright">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <p>© 2019 All Rights Reserved. Design by<a href="https://html.design/"> Free Html Templates</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+
+
+      <!-- Javascript files-->
+      <script src="{% static 'home/js/jquery.min.js' %}"></script>
+      <script src="{% static 'home/js/popper.min.js' %}"></script>
+      <script src="{% static 'home/js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'home/js/jquery-3.0.0.min.js' %}"></script>
+      <!-- sidebar -->
+      <script src="{% static 'home/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+      <script src="{% static 'home/js/custom.js' %}"></script>
+
+
+</body>
+{% endblock %}
+</html>

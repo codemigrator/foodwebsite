@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />
+    <link href="{% static 'pr/fontawesome/css/all.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'pr/css/templatemo-comparto.css' %}" rel="stylesheet" />
+    <title>Comparto HTML CSS Template</title>
+<!--
+
+Comparto TemplateMo
+
+https://templatemo.com/tm-544-comparto
+
+-->
+</head>
+<body>
+<!--<body class="tm-section-1-r tm-bg-color-8">-->
+<div>
+    <!-- Back to top button -->
+<!--    <a id="button"><i class="fas fa-angle-up fa-2x"></i></a>-->
+<!--    <div class="container-fluid">-->
+        <section class="tm-mb-1" id="about" style="padding-top:15px">
+<!--                <article class="tm-section-1-r tm-bg-color-8">-->
+                    <div class="tm-section-1-l">
+                    <img src="{{pt.img.url}}" alt="About image" class="tm-img-responsive">
+                    </div>
+                <div>
+                    <h2 class="tm-mb-2 tm-title-color">{{pt.name}}</h2>
+                    <p>PRICE:{{pt.price}}Rs<br>{{pt.desc}}</p>
+                    <p>STOCK:{{pt.stock}}</p>
+{% if pt.stock <= 0 %}
+                    <h1 style=""color="red">sorry.No stock left</h1>
+                    {% else %}
+
+                    <a href="{% url 'addcart' pt.id %}" class="tm-btn tm-btn-1 tm-link-to-services">Add To Cart</a>
+                </div>
+                    {% endif %}
+<!--                </article>-->
+<!--    </div>-->
+        </section>
+    </div>
+      <!--  footer -->
+      <footer>
+         <div class="footer">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-3">
+                     <div class="inror_box">
+                        <h3>INFORMATION </h3>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="inror_box">
+                        <h3>MY ACCOUNT </h3>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="inror_box">
+                        <h3>ABOUT  </h3>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="inror_box">
+                        <h3>CONTACTS  </h3>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="copyright">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <p>© 2019 All Rights Reserved. Design by<a href="https://html.design/"> Free Html Templates</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+
+
+      <!-- Javascript files-->
+      <script src="{% static 'home/js/jquery.min.js' %}"></script>
+      <script src="{% static 'home/js/popper.min.js' %}"></script>
+      <script src="{% static 'home/js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'home/js/jquery-3.0.0.min.js' %}"></script>
+      <!-- sidebar -->
+      <script src="{% static 'home/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+      <script src="{% static 'home/js/custom.js' %}"></script>
+
+</body>
+</html>
+{% endblock %}
